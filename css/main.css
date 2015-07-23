@@ -1,0 +1,58 @@
+
+#chatroom-list {
+    width: 273px;
+    height: 900px;
+    background: -webkit-linear-gradient(#7CC7CF, #376C92);
+    /*=====any of these 4 would fix the problem=====*/
+    /*overflow: hidden;*/
+    /*overflow: auto;*/ 
+    /*display: inline-block;*/
+    position: fixed;
+}
+
+ h1 {
+    font-family: 'Arvo', serif;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 33px;
+}
+
+.wrapper {
+    padding: 43px;
+}
+
+.chatroom-groups {
+    margin-bottom: 20px;
+    
+}
+
+.chatroom-groups li {
+    margin-bottom: 12px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: white;
+}
+
+.btn {
+    font-family: 'Lato', sans-serif;
+    border-color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   border: solid white 1px;
+   padding: 10px 20px 10px 25px;
+   display:inline-block;
+   position: relative;
+
+}
+
+.btn .icon-plus {
+  position: absolute;
+  top: 12px;
+  left: 6px;
+}
