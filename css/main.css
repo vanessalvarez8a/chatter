@@ -7,7 +7,7 @@
     /*overflow: hidden;*/
     /*overflow: auto;*/ 
     /*display: inline-block;*/
-    position: fixed;
+    
 }
 
  h1 {
@@ -17,7 +17,11 @@
     margin-bottom: 33px;
 }
 
-.wrapper {
+.top {
+    padding: 43px;
+}
+
+.bottom {
     padding: 43px;
 }
 
@@ -56,3 +60,33 @@
   top: 12px;
   left: 6px;
 }
+
+li {
+    position: relative;
+}
+
+.online-status::before { 
+   content: "\2022";
+   display: inline-block;
+   color: white;
+   font-size: 25px;
+   position: relative;
+   top: 4px;
+   margin-right: 10px;
+   line-height: 0;
+
+}
+
+
+.offline-status::before { 
+   content: "\25E6";
+   display: inline-block;
+   color: white;
+   font-size: 25px;
+   position: relative;
+   top: 4px;
+   margin-right: 10px;
+   line-height: 0;
+
+}
+
