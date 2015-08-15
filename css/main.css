@@ -1,28 +1,34 @@
 
-#chatroom-list {
+body {
+  display: -webkit-flex; /* Safari */
+  display: flex; 
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+#leftside-bar {
     width: 273px;
-    height: 900px;
+    padding: 43px;
     background: -webkit-linear-gradient(#7CC7CF, #376C92);
     /*=====any of these 4 would fix the problem=====*/
     /*overflow: hidden;*/
     /*overflow: auto;*/ 
-    /*display: inline-block;*/
-    
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
 }
 
  h1 {
     font-family: 'Arvo', serif;
     color: white;
     font-size: 24px;
-    margin-bottom: 33px;
+    margin-bottom: 25px;
 }
 
 .top {
-    padding: 43px;
-}
-
-.bottom {
-    padding: 43px;
+    margin-bottom: 30px;
 }
 
 .chatroom-groups {
@@ -57,13 +63,15 @@
 
 .btn .icon-plus {
   position: absolute;
-  top: 12px;
+  top: 10px;
   left: 6px;
 }
+
 
 li {
     position: relative;
 }
+
 
 .online-status::before { 
    content: "\2022";
@@ -90,3 +98,165 @@ li {
 
 }
 
+#message-input {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #979797;
+    position: absolute;
+    left: 20px;
+    bottom: 8px;
+    overflow-y: hidden; 
+    height: 60px; 
+    width: 80%;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: none;
+}
+
+.rightside-box {
+   
+    width: 100%;
+    height: 80%;
+    
+}
+
+.content {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 20px 20px 20px 20px;
+}
+
+
+
+.send-btn {
+  background-color: #7ECAD1;
+  border-radius: 8px;
+  position: absolute;
+  border: 0;
+  right: 15px;
+  bottom: 8px;
+  font-family: 'Arvo', serif;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 18px 35px 18px 50px
+}
+
+.send-btn .icon-paperplane {
+  position: absolute;
+  left: 12px;
+  top: 18px;
+}
+
+.chat-title   {
+    font-family: 'Arvo', serif;
+    color: #7ECAD1;
+    font-size: 22px;
+    float: left;
+    
+}
+
+
+.chatters-count {
+   float: right;
+}
+
+.break {
+        border-bottom: 1px solid #979797;
+        margin: 20px -20px 20px -20px
+    
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #979797;
+    
+}
+
+h3 {
+    font-family: 'Arvo', serif;
+    color: #7ECAD1;
+    
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: #979797;
+    font-size: 13px;
+    left: 80px;
+    top: 40px;
+    line-height: 20px;
+    
+}
+
+
+.user-container {
+     width: 100%;
+     border-bottom: 1px solid #979797;
+     padding-bottom: 20px;
+     margin-bottom: 20px;
+}
+
+.user-container .user-container-left {
+     width: 8%;
+     float: left;
+     
+}
+
+.user-container .user-container-right {
+     width: 92%;
+     float: left;
+}
+
+.user-container-right h3 {
+    margin-bottom: 10px;
+}
+
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.chatroom-modal {
+    width: 350px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0px 1px 6px 0px #979797;
+    position: absolute;
+    top: 10%;
+    right: 25%;
+    left: 25%;
+    border-radius: 15px;
+    
+}
+
+.modal-logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+
+}
+
+.new-room-h2 {
+    font-family: 'Lato', sans-serif;
+    color: #979797;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+input {
+    width: 317px;
+    height: 45px;
+    border: solid 1px #BFBDBD;
+    border-radius: 5px;
+    margin: 15px;
+}
