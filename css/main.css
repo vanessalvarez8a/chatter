@@ -58,6 +58,7 @@ body {
    padding: 10px 20px 10px 25px;
    display:inline-block;
    position: relative;
+   cursor: pointer;
 
 }
 
@@ -225,7 +226,7 @@ p {
 
 .chatroom-modal {
     width: 350px;
-    height: 400px;
+    height: 360px;
     background-color: white;
     box-shadow: 0px 1px 6px 0px #979797;
     position: absolute;
@@ -234,6 +235,7 @@ p {
     left: 25%;
     border-radius: 15px;
     
+    
 }
 
 .modal-logo {
@@ -241,22 +243,87 @@ p {
     margin-right: auto;
     display: block;
     margin-top: 20px;
+    margin-bottom: 5px;
 
 }
 
 .new-room-h2 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Arvo', serif;
     color: #979797;
-    font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 22px;
+    margin: 0 10 0 70;
+
     
 }
 
 input {
     width: 317px;
     height: 45px;
-    border: solid 1px #BFBDBD;
+    border: solid 1px #979797;
     border-radius: 5px;
     margin: 15px;
+    position: relative;
+}
+
+.btn-wrapper {
+    width: 317px;
+    margin: 0 auto;
+}
+
+.newRoom-btn {
+    display: inline-block; 
+    width: 150px;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-weight: 300;
+    cursor: pointer;
+    
+}
+.cancel {
+    background-color: #F3AF50;
+    margin-right: 12px;
+}
+
+.create {
+    background-color: #7ECAD1;
+}
+
+.username-modal {
+    width: 350px;
+    height: 360px;
+    background-color: white;
+    box-shadow: 0px 1px 6px 0px #979797;
+    position: absolute;
+    top: 10%;
+    right: 25%;
+    left: 25%;
+    border-radius: 15px;
+    display: none;
+}
+
+ 
+::-webkit-input-placeholder {
+ font-size: 14px;
+ color: #9B9B9B;
+ text-align: center;
+ font-family: 'Lato', sans-serif;
+}
+
+.btn-continue {
+    display: inline-block;
+    width: 317px;
+    background-color: #7ECAD1;
+    border-radius: 5px;
+    margin-left: 15px;
+    text-align: center;
+    color: white;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    padding: 10px 0;
+    
 }

@@ -1,5 +1,6 @@
-<html>
+<html ng-app="blocChat">
     <head>
+
         <link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
@@ -10,17 +11,15 @@
         <link href="https://fontastic.s3.amazonaws.com/tQqbBzMeZS8BTbVAY7VkTJ/icons.css" rel="stylesheet">
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-controller="chatController">
             
         <div id="leftside-bar"> 
             <div class="top">
                 <h1>Rooms</h1>
                 <ul class="chatroom-groups">
-                    <li>Social Media Lovers</li>
-                    <li>Health Starts Here</li>
-                    <li>Developers</li>
+                    <li class="room-label" ng-repeat="room in chatRooms">{{ room }}</li> <!-- ADDED ng repeat -->
                 </ul>
-                <a class="btn" href="#"> 
+                <a class="btn" href="#" ng-click="showCreate = !showCreate"> <!-- ADDED open the form to create new room -->
                     <i class="icon-plus"></i>
                 New Room</a>
             </div>  
@@ -28,11 +27,8 @@
             <div class="bottom">
                 <h1>Chatters</h1>
                 <ul class="chatroom-groups">
-                    <li class="online-status">Ricardo Garcia</li>
-                    <li class="online-status">Manuel Martinez</li>
-                    <li class="online-status">Lauren Belinsky</li>
-                    <li class="offline-status">Courtney Kox</li>
-                    <li class="offline-status">Jill Chaskin</li>
+                    <li ng-repeat="user in chatters" ng-class="{'online-status': user.onlineStatus, 'offline-status': !user.onlineStatus }">{{ user.name }}</li> <!-- ADDED -->
+
                 </ul>
                 <a href="/">
                    <img src="http://res.cloudinary.com/vanessalvarez8a/image/upload/c_scale,h_150,w_150/v1438826590/chatter_logo_muifv1.png"/>
@@ -44,69 +40,51 @@
             <div class="rightside-box">
                 <div class="room-title clearfix">
                     <h2 class='chat-title'>Developers</h2>
-                    <p class="chatters-count">5 chatters</h2>
+                    <p class="chatters-count">5 chatters</p>
                 </div>
                 <hr class="break"></hr>
                 
-            <div class="user-container clearfix">
-                <div class="user-container-left">
-                    <div class="circle"></div>
-                </div>
-                <div class="user-container-right">
-                    <h3>Ricardo Garcia</h3>
-                    <p>Lorem ipsum dolor sit amet, ea sanctus albucius voluptua vix. Pri denique adipisci eu. Quod utroque mei id. Fugit perpetua cum ut, vide decore facilisis pro ei, eos mundi consetetur id. Mea no mollis molestie, an wisi nonumy soluta cum.</p>
-                </div>
-            </div>
-            
-            <div class="user-container clearfix">
-                <div class="user-container-left">
-                    <div class="circle"></div>
-                </div>
-                <div class="user-container-right">
-                    <h3>Lauren Belinsky</h3>
-                    <p>Lorem ipsum dolor sit amet, ea sanctus albucius voluptua vix. Pri denique adipisci eu. Quod utroque mei id. Fugit perpetua cum ut, vide decore facilisis pro ei, eos mundi consetetur id. Mea no mollis molestie, an wisi nonumy soluta cum.</p>
-                </div>
-            </div>
-            
-            <div class="user-container clearfix">
-                <div class="user-container-left">
-                    <div class="circle"></div>
-                </div>
-                <div class="user-container-right">
-                    <h3>Manuel Martinez</h3>
-                    <p>Lorem ipsum dolor sit amet, ea sanctus albucius voluptua vix. Pri denique adipisci eu. Quod utroque mei id. Fugit perpetua cum ut, vide decore facilisis pro ei, eos mundi consetetur id. Mea no mollis molestie, an wisi nonumy soluta cum.</p>
-                </div>
-            </div>
-
-            
-            </div>
-            
-            <div class="chatroom-modal">
-                <img class="modal-logo" src="http://res.cloudinary.com/vanessalvarez8a/image/upload/c_scale,h_180,w_180/v1439522062/chatterlogocopy_jcjela.png"/>
-                <br></br>
-                <h2 class="new-room-h2">Create a New Room</h2>
-        
-                <input type="text" name="Enter a room name"/>
-                <btn>Cancel</btn>
-                <btn>Create Room</btn>
                 
+            <div class="user-container clearfix" ng-repeat="message in messages">
+                <div class="user-container-left">
+                    <div class="circle"></div>
+                </div>
+                <div class="user-container-right">
+                    <div>
+                        <h3> {{ message.name }}</h3>
+                        <p> {{ message.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div ng-show="showCreate">  <!-- ADDED -->
+            <div class="chatroom-modal" ng-submit="createChannel()"> <!-- ADDED -->
+                    <img class="modal-logo" src="http://res.cloudinary.com/vanessalvarez8a/image/upload/c_scale,h_170,w_170/v1439522062/chatterlogocopy_jcjela.png"/>
+                    <h2 class="new-room-h2">Create a New Room</h2>
+                    <input type="text" name="Enter a room name" ng-model="newChannel"/> <!-- ADDED -->
+                 <div class = 'btn-wrapper'>
+                    <button class="newRoom-btn cancel" ng-click="showCreate = !showCreate">Cancel</button><button class="newRoom-btn create" ng-click="createRoom()">Create Room</button>
+                 </div>
+            </div>
+        </div>      
+            
+            <div class="username-modal">
+                    <img class="modal-logo" src="http://res.cloudinary.com/vanessalvarez8a/image/upload/c_scale,h_170,w_170/v1439522062/chatterlogocopy_jcjela.png"/>
+                    <input type="text" name="Enter username" placeholder="Enter Username"/>
+                    <button class="btn-continue">Continue</button>
             </div>
             
-            
-            
-            
-                <hr class="break"></hr>
-            <textarea id="message-input" maxlength="" autocorrect="off" autocomplete="off" spellcheck="true"></textarea>
-            <a href="#" class="send-btn">
+            <hr class="break"></hr>
+        <div>  <!-- ADDED -->
+            <textarea id="message-input" ng-model="currentMessage" maxlength="newMessage" autocorrect="off" autocomplete="off" spellcheck="true"></textarea> <!-- ADDED -->
+            <a href="#" class="send-btn" ng-click="addMessage()">
                 <i class="icon-paperplane"></i>
                 Send
             </a>
-
-            
+        </div>    
         </div>
-        
     </body>
-    
 </html>
 
 

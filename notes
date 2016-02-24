@@ -1,46 +1,26 @@
-
-
-h2 {
-    font-family: 'Lato', sans-serif;
-    color: #979797;
-    font-size: 18px;
-    position: absolute;
-    
-    
-}
-
-.chatters-count {
-    right: 60px;
-}
-
-.break {
-    top: 40px;
-    position: relative;
-    margin: 0 -20px 0 -20px;
-}
-
-.circle {
-    width: 41px;
-    height: 41px;
-    border-radius: 50%;
-    background-color: #979797;
-    top: 70px;
-    
-}
-
-h3 {
-    font-family: 'Lato', sans-serif;
-    color: #386E93;
-    left: 80px;
-    top: 20px;
-    
-}
-
-p {
-    font-family: 'Roboto', sans-serif;
-    color: #386E93;
-    font-size: 13px;
-    left: 80px;
-    top: 40px;
-    
-}
+	app.controller('chatController', ['$scope','Message', function($scope,Message){
+ 
+			$scope.name = "Coder01";
+ 
+			$scope.messages= Message.all;
+	}]);
+ 
+ 	app.factory('Message', [function() {
+ 
+		var messages = [{'name':'Pippo','text':'Hello'},
+						{'name':'Pluto','text':'Hello'},
+						{'name':'Pippo','text':'how are you ?'},
+						{'name':'Pluto','text':'fine thanks'},
+						{'name':'Pippo','text':'Bye'},
+						{'name':'Pluto','text':'Bye'}];
+ 
+		var Message = {
+			all: messages
+		};
+ 
+		return Message;
+ 
+	}]);
+	
+	
+	
